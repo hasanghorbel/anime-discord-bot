@@ -25,7 +25,7 @@ class MyClient(discord.Client):
     async def on_ready(self):
         await self.wait_until_ready()
         if not self.synced:
-            await tree.sync(guild=discord.Object(id=725118026458071080))
+            await tree.sync(guild=discord.Object(id='your guild id here'))
             self.synced = True
         print(f'Logged on as {self.user}!')
 
@@ -37,7 +37,7 @@ tree = app_commands.CommandTree(client)
 @tree.command(
     name='sauce',
     description='searching',
-    guild=discord.Object(id=725118026458071080))
+    guild=discord.Object(id='your guild id here'))
 @app_commands.choices(
     genre=[app_commands.Choice(name=genre, value=genre) for genre in genres_1])
 async def sauce(interaction: discord.Interaction, genre: str):
@@ -59,7 +59,7 @@ async def sauce(interaction: discord.Interaction, genre: str):
 @tree.command(
     name='sauce2',
     description='searching',
-    guild=discord.Object(id=725118026458071080))
+    guild=discord.Object(id='your guild id here'))
 @app_commands.choices(
     genre=[app_commands.Choice(name=genre, value=genre) for genre in genres_2])
 async def sauce2(interaction: discord.Interaction, genre: str):
@@ -78,4 +78,4 @@ async def sauce2(interaction: discord.Interaction, genre: str):
         await interaction.response.send_message(embed=embed)
 
 client.run(
-    'MTAxODE3MTI1NzA2MzIxMTEwOQ.GB7kfe.NOjBKkh9OJ47aVi9OtAtu-2fFPAUl1okGckNDE')
+    'your token here')
