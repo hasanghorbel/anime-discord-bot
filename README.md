@@ -8,4 +8,5 @@ pip install -r requirements.txt
 ```
 python main.py -t <your_token> -id <guild_id>
 ```
-![test](https://github.com/IsekaiCode/anime-bot/assets/109307799/0efb9f0e-6b0c-4976-8439-7e6e497fc531)
+
+![test](https://github.com/IsekaiCode/anime-bot/assets/109307799/80974a60-c0a8-4c4b-8235-0efbbb2671d8)
