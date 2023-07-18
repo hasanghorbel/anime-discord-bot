@@ -1,9 +1,20 @@
+import argparse
 import csv
 from random import randint
 from textwrap import fill
 
 import discord
 from discord import app_commands
+
+parser = argparse.ArgumentParser(description="recognize images based on Imagenet dataset")
+parser.add_argument('-t', '--token',
+                    type=str, help='discord bot token')
+parser.add_argument('-id', '--guild_id',
+                    type=str, help='guild ID')
+args = parser.parse_args()
+
+TOKEN = args.token
+GUILD_ID = args.guild_id
 
 genres_1 = ['Comedy', 'Sports', 'Drama', 'School', 'Shounen', 'Music',
             'Romance', 'Sci-Fi', 'Adventure', 'Mystery', 'Fantasy', 'Action',
@@ -25,7 +36,7 @@ class MyClient(discord.Client):
     async def on_ready(self):
         await self.wait_until_ready()
         if not self.synced:
-            await tree.sync(guild=discord.Object(id='your guild id here'))
+            await tree.sync(guild=discord.Object(id=GUILD_ID))
             self.synced = True
         print(f'Logged on as {self.user}!')
 
@@ -37,7 +48,7 @@ tree = app_commands.CommandTree(client)
 @tree.command(
     name='sauce',
     description='searching',
-    guild=discord.Object(id='your guild id here'))
+    guild=discord.Object(id=GUILD_ID))
 @app_commands.choices(
     genre=[app_commands.Choice(name=genre, value=genre) for genre in genres_1])
 async def sauce(interaction: discord.Interaction, genre: str):
@@ -59,7 +70,7 @@ async def sauce(interaction: discord.Interaction, genre: str):
 @tree.command(
     name='sauce2',
     description='searching',
-    guild=discord.Object(id='your guild id here'))
+    guild=discord.Object(id=GUILD_ID))
 @app_commands.choices(
     genre=[app_commands.Choice(name=genre, value=genre) for genre in genres_2])
 async def sauce2(interaction: discord.Interaction, genre: str):
@@ -78,4 +89,4 @@ async def sauce2(interaction: discord.Interaction, genre: str):
         await interaction.response.send_message(embed=embed)
 
 client.run(
-    'your token here')
+    TOKEN)
