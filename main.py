@@ -6,7 +6,7 @@ from textwrap import fill
 import discord
 from discord import app_commands
 
-parser = argparse.ArgumentParser(description="recognize images based on Imagenet dataset")
+parser = argparse.ArgumentParser(description="discord anime generator bot")
 parser.add_argument('-t', '--token',
                     type=str, help='discord bot token')
 parser.add_argument('-id', '--guild_id',
