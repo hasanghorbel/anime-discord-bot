@@ -1,4 +1,4 @@
-# Anime-Bot
+# Anime Discord Bot
 ## discord anime generator bot
 ### Install requirements with command:
 ```
